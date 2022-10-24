@@ -27,9 +27,7 @@ class Program
 
             switch (selectionInput)
             {
-                case "a":
-                    Console.Clear();
-                    break;
+                
                 case "c":
                     getUserInput.MainMenu();
                     break;
@@ -40,7 +38,7 @@ class Program
 
 
                 default:
-                    Console.WriteLine("You will have to type a valid entry.(or type 'a' to return to the Top Menu.)");
+                    Console.WriteLine("You will have to enter a valid entry.");
                     break;
             }
         }
