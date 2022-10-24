@@ -134,7 +134,7 @@ internal class GetUserInput
             ProcessUpdate();          
         }
 
-        var updateInput = string.Empty;
+        
         bool updating = true;
         while (updating == true)
         {
@@ -144,7 +144,7 @@ internal class GetUserInput
             Console.WriteLine($"\nType 's' to save Update\n");
             Console.WriteLine($"\nType '0' to go back to Main Menu \n");
 
-            updateInput = Console.ReadLine();
+           var updateInput = Console.ReadLine();
 
 
             switch (updateInput)
