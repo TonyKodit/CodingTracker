@@ -5,13 +5,53 @@ class Program
 {
     static string connectionString = ConfigurationManager.AppSettings.Get("ConnectionString");
 
-    private static void Main(string[] args)
+    public static void Main(string[] args)
     {
         DatabaseManager databaseManager = new();
         GetUserInput getUserInput = new();
 
-        databaseManager.CreateTable(connectionString);
+        GetUserInput2 getuserInput2 = new();
 
-        getUserInput.MainMenu();
+        bool closeApp = false;
+
+        while (closeApp == false)
+        {
+            databaseManager.CreateTable(connectionString);
+            Console.WriteLine("\nTOP MENU\n");
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("Press 'c' for Coding Tracker");
+            Console.WriteLine("Press 'w' for Workout Tracker");
+
+
+            var selectionInput = Console.ReadLine();
+
+            switch (selectionInput)
+            {
+                case "a":
+                    Console.Clear();
+                    break;
+                case "c":
+                    getUserInput.MainMenu();
+                    break;
+
+                case "w":
+                    getuserInput2.MainMenu();
+                    break;
+
+
+                default:
+                    Console.WriteLine("You will have to type a valid entry.(or type 'a' to return to the Top Menu.)");
+                    break;
+            }
+        }
+       
+       
+
+        
+
+
+
+
+
     }
 }
