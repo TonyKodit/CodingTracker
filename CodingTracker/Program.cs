@@ -12,6 +12,6 @@ class Program
 
         databaseManager.CreateTable(connectionString);
 
-        getUserInput.MainMenu():
+        getUserInput.MainMenu();
     }
 }
