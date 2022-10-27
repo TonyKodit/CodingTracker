@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Diagnostics;
+using System.Globalization;
 
 internal class GetUserInput
 {
@@ -16,7 +18,9 @@ internal class GetUserInput
             Console.WriteLine("Type 2 to Add record");
             Console.WriteLine("Type 3 to Delete record");
             Console.WriteLine("Type 4 to Update record");
+            Console.WriteLine("Type 5 to Launch Stop Watch");
             Console.WriteLine("Type p to return to Top Menu");
+            Console.WriteLine("Type 0 to Exit app");
 
             var commandInput = Console.ReadLine();
 
@@ -30,9 +34,9 @@ internal class GetUserInput
             switch (commandInput)
             {
                 case "0":
+                    Console.WriteLine("\nGoodbye");
                     closeApp = true;
                     Environment.Exit(0);
-                    Console.WriteLine("\nGoodbye");
                     break;
                 case "p":
                     Console.Clear();
@@ -50,15 +54,60 @@ internal class GetUserInput
                 case "4":
                     ProcessUpdate();
                     break;
+                case "5":
+                    ProcessStopWatch();
+                    break;
                 default:
                     Console.WriteLine("\n\nInvalid Command. Please type a number from 0 to 4");
                     break;
             }
 
+
         }
+
+
+
     }
 
+    private void ProcessStopWatch()
+    {
+        Console.WriteLine("Press z to start Stopwatch and x to stop");
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
 
+        var done = false;
+
+        while (!done)
+        {
+            var UserInput = Console.ReadLine();
+
+            switch (UserInput)
+            {
+                case "z":
+                    stopwatch.Start();
+                    break;
+                case "x":
+                    stopwatch.Stop();
+                    done = true;
+                    break;
+                default:
+                    Console.WriteLine("Invalid entry");
+                    break;
+            }
+        }
+
+        //To get the elapsed time as a  Timespan value
+        TimeSpan ts = stopwatch.Elapsed;
+
+        //Format and display the Timespan Value.
+        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds / 2);
+        Console.WriteLine("Runtime" + elapsedTime);
+
+        Console.ReadLine();
+
+        
+    }
+    
     private void ProcessAdd()
     {
         
@@ -200,7 +249,7 @@ internal class GetUserInput
             Console.WriteLine("\n\nNot a valid date, Please insert the date with the format: dd-mm-yy\n\n");
             dateInput = Console.ReadLine();
         }
-
+        
         return dateInput;
     }
 

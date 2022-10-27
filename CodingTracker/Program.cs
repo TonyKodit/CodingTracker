@@ -21,6 +21,7 @@ class Program
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("Press 'c' for Coding Tracker");
             Console.WriteLine("Press 'w' for Workout Tracker");
+            Console.WriteLine("Press '0' to exit app");
 
 
             var selectionInput = Console.ReadLine();
@@ -35,7 +36,11 @@ class Program
                 case "w":
                     getuserInput2.MainMenu();
                     break;
-
+                case "0":
+                    Console.WriteLine("\nGoodbye");
+                    closeApp = true;
+                    Environment.Exit(0);
+                    break;
 
                 default:
                     Console.WriteLine("You will have to enter a valid entry.");

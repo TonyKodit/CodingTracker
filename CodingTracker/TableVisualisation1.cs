@@ -1,6 +1,6 @@
 ﻿using ConsoleTableExt;
 
-internal class TableVisualisation
+internal class TableVisualisation1
 {
     internal static void ShowTable<T>(List<T> tableData) where T : class
     {
@@ -8,9 +8,9 @@ internal class TableVisualisation
 
         ConsoleTableBuilder
             .From(tableData)
-            .WithTitle("Coding")
+            .WithTitle("Workout")
             .ExportAndWriteLine();
         Console.WriteLine("\n\n");
-        
+
     }
 }
